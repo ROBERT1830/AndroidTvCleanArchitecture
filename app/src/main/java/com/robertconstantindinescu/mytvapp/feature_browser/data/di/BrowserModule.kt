@@ -4,7 +4,9 @@ import android.app.Application
 import androidx.room.Room
 import com.robertconstantindinescu.mytvapp.feature_browser.data.local.MovieDatabase
 import com.robertconstantindinescu.mytvapp.feature_browser.data.remote.MovieApi
+import com.robertconstantindinescu.mytvapp.feature_browser.data.repository.MovieRepoImpl
 import com.robertconstantindinescu.mytvapp.feature_browser.data.util.Constants.MOVIE_BASE_URL
+import com.robertconstantindinescu.mytvapp.feature_browser.domain.repository.MovieRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -51,5 +53,18 @@ object BrowserModule {
             MovieDatabase::class.java,
             "movie_db"
         ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideMovieRepository(
+        api: MovieApi,
+        db:MovieDatabase
+    ): MovieRepo {
+        return MovieRepoImpl(
+            api = api,
+            dao = db.dao
+        )
+
     }
 }

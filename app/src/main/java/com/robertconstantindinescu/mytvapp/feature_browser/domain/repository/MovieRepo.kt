@@ -9,7 +9,7 @@ interface MovieRepo {
 
     suspend fun searchMovieApi(): Result<List<SharedMovie>>
 
-    suspend fun insertMovie(movie: Movie)
+    suspend fun insertMovie(sharedMovie: SharedMovie)
 
     suspend fun getAllMovies(): Flow<List<SharedMovie>>
 

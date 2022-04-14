@@ -14,5 +14,5 @@ data class MovieEntity(
     val rating: Double,
     val thumbUrl: String,
     val year: Int?,
-    @PrimaryKey val id: Int? = null
+    @PrimaryKey val id: Long? = null
 )

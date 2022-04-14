@@ -6,11 +6,11 @@ data class SharedMovie(
     val actors: List<String>,
     val description: String,
     val directors: List<String>,
-    val genre: Genre,
+    val genre: List<String>,
     val imageUrl: String,
     val name:String,
     val rating: Double,
     val thumbUrl: String,
     val year: Int?,
-    val id: Int? = null
+    val id: Long? = null
 )
