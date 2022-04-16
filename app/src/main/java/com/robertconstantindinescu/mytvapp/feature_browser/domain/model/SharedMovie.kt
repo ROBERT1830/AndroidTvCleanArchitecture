@@ -12,5 +12,5 @@ data class SharedMovie(
     val rating: Double,
     val thumbUrl: String,
     val year: Int?,
-    val id: Long? = null
+    var id: Long? = null
 )
