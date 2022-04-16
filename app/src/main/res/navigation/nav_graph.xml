@@ -7,6 +7,6 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.robertconstantindinescu.ui.feature.home.HomeFragment"
+        android:name="com.robertconstantindinescu.mytvapp.feature_browser.presentation.home_screen.BrowserScreenFragment"
         android:label="HomeFragment" />
 </navigation>
