@@ -1,11 +1,11 @@
 package com.robertconstantindinescxu.mytvapp.feature_browser.data.mapper
 
-import com.robertconstantindinescu.mytvapp.feature_browser.data.remote.dto.Movie
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.SharedMovie
+import com.robertconstantindinescu.mytvapp.feature_browser.data.remote.dto.new_movies.Movie
+import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.new_shared_movie.SharedNewMovie
 
-fun Movie.toSharedMovie(): SharedMovie? {
+fun Movie.toSharedMovie(): SharedNewMovie? {
 
-    return SharedMovie(
+    return SharedNewMovie(
         actors = actors,
         description = desc,
         directors = directors,

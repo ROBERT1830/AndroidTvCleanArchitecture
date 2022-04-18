@@ -1,8 +1,8 @@
-package com.robertconstantindinescu.mytvapp.feature_browser.domain.model
+package com.robertconstantindinescu.mytvapp.feature_browser.domain.model.new_shared_movie
 
 import androidx.room.PrimaryKey
 
-data class SharedMovie(
+data class SharedNewMovie(
     val actors: List<String>,
     val description: String,
     val directors: List<String>,

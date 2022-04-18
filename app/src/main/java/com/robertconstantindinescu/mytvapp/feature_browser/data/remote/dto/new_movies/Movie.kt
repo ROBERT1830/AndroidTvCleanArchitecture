@@ -1,4 +1,4 @@
-package com.robertconstantindinescu.mytvapp.feature_browser.data.remote.dto
+package com.robertconstantindinescu.mytvapp.feature_browser.data.remote.dto.new_movies
 
 
 import android.os.Parcelable

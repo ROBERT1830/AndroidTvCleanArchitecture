@@ -7,9 +7,9 @@ import androidx.leanback.widget.Presenter
 import coil.load
 import coil.size.Scale
 import com.robertconstantindinescu.mytvapp.R
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.SharedMovie
+import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.new_shared_movie.SharedNewMovie
 
-class PosterWithImagePresenter: Presenter() {
+class NewMoviesPosterWithImagePresenter: Presenter() {
 
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
         val imageCardView = ImageCardView(parent.context).apply {
@@ -26,7 +26,7 @@ class PosterWithImagePresenter: Presenter() {
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, item: Any?) {
-        val movie = item as SharedMovie
+        val movie = item as SharedNewMovie
         with(viewHolder.view as ImageCardView) {
             val posterWidth = resources.getDimension(R.dimen.poster_width).toInt()
             val posterHeight = resources.getDimension(R.dimen.poster_height).toInt()

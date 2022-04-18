@@ -2,8 +2,8 @@ package com.robertconstantindinescu.mytvapp.feature_browser.presentation.home_sc
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.Category
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.SharedMovie
+import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.new_shared_movie.Category
+import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.new_shared_movie.SharedNewMovie
 import com.robertconstantindinescu.mytvapp.feature_browser.domain.use_case.BrowserUseCases
 import com.robertconstantindinescu.mytvapp.util.DataSourceState
 import com.robertconstantindinescu.mytvapp.util.SingleUiEvent
@@ -21,7 +21,7 @@ class BrowserScreenViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _state = MutableStateFlow<DataSourceState<List<Category>>>(DataSourceState.Empty())
-    val state: StateFlow<DataSourceState<List<Category>>> = _state
+    val mState: StateFlow<DataSourceState<List<Category>>> = _state
 
     private val _singleUiEvent = Channel<SingleUiEvent>()
     val singleUiEvent = _singleUiEvent.receiveAsFlow()
@@ -31,9 +31,16 @@ class BrowserScreenViewModel @Inject constructor(
             is BrowserScreenEvent.SearchMovies -> {
                 executeSearch()
             }
-            is BrowserScreenEvent.DetailNavigate -> {
+            is BrowserScreenEvent.OnMovieClick -> {
 
             }
+            is BrowserScreenEvent.OnOldMoviesHeaderClick -> {
+                viewModelScope.launch {
+                    _singleUiEvent.send(SingleUiEvent.NavigateSucess)
+                }
+
+            }
+
         }
     }
 
@@ -47,16 +54,14 @@ class BrowserScreenViewModel @Inject constructor(
         viewModelScope.launch {
             with(_state) {
                 tryEmit(DataSourceState.Loading())
-                val categoryList = getCategoryList(useCases.searchMovieUseCase.invoke())
+                val categoryList = getCategoryList(useCases.searchNewMovieUseCase.invoke())
                 tryEmit(DataSourceState.Success(categoryList))
             }
         }
     }
 
-    private fun getCategoryList(response: Result<List<SharedMovie>>): List<Category> {
-
+    private fun getCategoryList(response: Result<List<SharedNewMovie>>): List<Category> {
         var categoryList = listOf<Category>()
-
         when {
             response.isSuccess -> {
                 response.map {
@@ -72,7 +77,7 @@ class BrowserScreenViewModel @Inject constructor(
     }
 }
 
-private fun List<SharedMovie>.categorize(): List<Category> {
+private fun List<SharedNewMovie>.categorize(): List<Category> {
     val genreSet = mutableSetOf<String>()
     for (movie in this) {
         for (genre in movie.genre) {
@@ -88,12 +93,12 @@ private fun List<SharedMovie>.categorize(): List<Category> {
             it.copy().apply {
                 this.id = categoryId
             }
-        }.run {
+        }.apply {
             feedItems.add(
                 Category(
                     id = categoryId,
                     genre = genre,
-                    movies = this
+                    newMovies = this
                 )
             )
         }

@@ -1,8 +1,8 @@
 package com.robertconstantindinescu.mytvapp.feature_browser.presentation.home_screen
 
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.SharedMovie
+import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.new_shared_movie.SharedNewMovie
 
 data class BrowserScreenState(
-    val movieList: List<SharedMovie> = listOf()
+    val newMovieList: List<SharedNewMovie> = listOf()
     // TODO: could be added more
 )
