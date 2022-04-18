@@ -16,10 +16,12 @@ object BrowserDomainModule {
     fun provideBrowserUseCases(
         repository: MovieRepo
     ) =  BrowserUseCases(
-        searchMovieUseCase = SearchMovieUseCase(repository),
+        searchNewMovieUseCase = SearchNewMovieUseCase(repository),
         // TODO: When those will be implemented, will need repository
         getMoviesUseCase = GetMoviesUseCase(),
         getMovieUseCase = GetMovieUseCase(),
-        trackMovieUseCase = TrackMovieUseCase()
+        trackMovieUseCase = TrackMovieUseCase(),
+        searchOldMovieUseCase = SearchOldMovieUseCase(repository),
+        categorizeOldMovie = CategorizeOldMovie()
     )
 }

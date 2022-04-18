@@ -3,6 +3,7 @@ package com.robertconstantindinescu.mytvapp.feature_browser.data.di
 import android.app.Application
 import androidx.room.Room
 import com.robertconstantindinescu.mytvapp.feature_browser.data.local.MovieDatabase
+import com.robertconstantindinescu.mytvapp.feature_browser.data.local.json.OldMovieParser
 import com.robertconstantindinescu.mytvapp.feature_browser.data.remote.MovieApi
 import com.robertconstantindinescu.mytvapp.feature_browser.data.repository.MovieRepoImpl
 import com.robertconstantindinescu.mytvapp.feature_browser.data.util.Constants.MOVIE_BASE_URL
@@ -57,13 +58,22 @@ object BrowserModule {
 
     @Provides
     @Singleton
+    fun provideOldMovieParser(): OldMovieParser{
+        return OldMovieParser
+    }
+
+    @Provides
+    @Singleton
     fun provideMovieRepository(
         api: MovieApi,
-        db:MovieDatabase
+        db:MovieDatabase,
+        jsonParser:OldMovieParser
     ): MovieRepo {
         return MovieRepoImpl(
             api = api,
-            dao = db.dao
+            dao = db.dao,
+            json = jsonParser
+
         )
 
     }

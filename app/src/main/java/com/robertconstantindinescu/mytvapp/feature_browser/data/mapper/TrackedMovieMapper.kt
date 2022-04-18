@@ -1,10 +1,10 @@
 package com.robertconstantindinescu.mytvapp.feature_browser.data.mapper
 
 import com.robertconstantindinescu.mytvapp.feature_browser.data.local.entity.MovieEntity
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.SharedMovie
+import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.new_shared_movie.SharedNewMovie
 
-fun MovieEntity.toSharedMovie(): SharedMovie{
-    return SharedMovie(
+fun MovieEntity.toSharedMovie(): SharedNewMovie {
+    return SharedNewMovie(
         actors = actors,
         description = description,
         directors = directors,
@@ -18,7 +18,7 @@ fun MovieEntity.toSharedMovie(): SharedMovie{
     )
 }
 
-fun SharedMovie.toMovieEntity(): MovieEntity{
+fun SharedNewMovie.toMovieEntity(): MovieEntity{
     return MovieEntity(
         actors = actors,
         description = description,

@@ -5,13 +5,10 @@ import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.leanback.widget.BaseCardView
-import androidx.leanback.widget.ImageCardView
 import androidx.leanback.widget.Presenter
 import com.robertconstantindinescu.mytvapp.R
 import com.robertconstantindinescu.mytvapp.feature_browser.presentation.util.Constants.ITEM_HEIGHT
 import com.robertconstantindinescu.mytvapp.feature_browser.presentation.util.Constants.ITEM_WIDTH
-import org.w3c.dom.Text
 
 class PosterWithTextPresenter: Presenter() {
 

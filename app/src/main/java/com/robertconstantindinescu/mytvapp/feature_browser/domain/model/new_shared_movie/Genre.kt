@@ -1,16 +1,4 @@
-package com.robertconstantindinescu.mytvapp.feature_browser.domain.model
-
-import com.robertconstantindinescu.mytvapp.feature_browser.data.remote.dto.Movie
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.util.Constants.ACTION
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.util.Constants.ADVENTURE
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.util.Constants.ANIMATION
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.util.Constants.COMEDY
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.util.Constants.CRIME
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.util.Constants.DRAMA
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.util.Constants.FAMILY
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.util.Constants.FANTASY
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.util.Constants.SCI_FI
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.util.Constants.WESTERN
+package com.robertconstantindinescu.mytvapp.feature_browser.domain.model.new_shared_movie
 
 //sealed class Genre(val list: List<String>){
 //

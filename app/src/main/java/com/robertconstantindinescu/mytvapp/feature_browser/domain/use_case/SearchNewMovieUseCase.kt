@@ -1,12 +1,12 @@
 package com.robertconstantindinescu.mytvapp.feature_browser.domain.use_case
 
-import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.SharedMovie
+import com.robertconstantindinescu.mytvapp.feature_browser.domain.model.new_shared_movie.SharedNewMovie
 import com.robertconstantindinescu.mytvapp.feature_browser.domain.repository.MovieRepo
 
-class SearchMovieUseCase(
+class SearchNewMovieUseCase(
     private val repository: MovieRepo
 ) {
-    suspend operator fun invoke(): Result<List<SharedMovie>>{
+    suspend operator fun invoke(): Result<List<SharedNewMovie>>{
         return  repository.searchMovieApi()
     }
 }
